@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request for Quote | RFQ | Friends Metal Industries</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e1e2f;
+      background-color: #ffffff;
+    }
+    :root {
+      --navy: #0a192f;
+      --metal-grey: #2c3e50;
+      --accent-orange: #e67e22;
+      --light-bg: #f8fafc;
+    }
+    .bg-navy {
+      background-color: var(--navy);
+    }
+    .bg-light-metal {
+      background-color: var(--light-bg);
+    }
+    .text-navy {
+      color: var(--navy);
+    }
+    .text-accent {
+      color: var(--accent-orange);
+    }
+    .btn-accent {
+      background-color: var(--accent-orange);
+      border-color: var(--accent-orange);
+      color: white;
+      font-weight: 500;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      transition: all 0.2s ease;
+    }
+    .btn-accent:hover {
+      background-color: #d35400;
+      border-color: #d35400;
+      color: white;
+    }
+    .page-header {
+      background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.9)), url('images/induestries.webp') center center/cover no-repeat;
+      padding: 4rem 0;
+      color: white;
+    }
+    .section-title {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      color: #5c6b7a;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .cert-badge {
+      background-color: var(--accent-orange);
+      color: white;
+      font-weight: 600;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    .btn-nav-contact {
+      background-color: var(--accent-orange);
+      color: white !important;
+      border-radius: 30px;
+      padding: 0.4rem 1.5rem !important;
+      margin-left: 0.5rem;
+    }
+    .rfq-form-container {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.12);
+    }
+    .form-control, .form-select {
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1.5px solid #e0e4e8;
+      background-color: white;
+      transition: all 0.2s;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--accent-orange);
+      box-shadow: 0 0 0 4px rgba(230, 126, 34, 0.1);
+    }
+    .form-label {
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .required:after {
+      content: " *";
+      color: #dc3545;
+    }
+    .file-upload-area {
+      border: 2px dashed #cbd5e1;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      background-color: var(--light-bg);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .file-upload-area:hover {
+      border-color: var(--accent-orange);
+      background-color: #fff8f2;
+    }
+    .info-sidebar {
+      background: var(--navy);
+      border-radius: 24px;
+      padding: 2rem;
+      color: white;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .info-icon {
+      font-size: 1.5rem;
+      color: var(--accent-orange);
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .step-number {
+      width: 35px;
+      height: 35px;
+      background-color: var(--accent-orange);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-right: 1rem;
+    }
+    .footer {
+      background-color: #0b1622;
+      color: #ccc;
+    }
+    .quantity-input {
+      display: flex;
+      align-items: center;
+    }
+    .quantity-input input {
+      width: 100px;
+      text-align: center;
+    }
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .progress-step {
+      text-align: center;
+      flex: 1;
+      position: relative;
+    }
+    .progress-step .step-circle {
+      width: 40px;
+      height: 40px;
+      background-color: #e0e4e8;
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 0.5rem;
+      border: 3px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .progress-step.active .step-circle {
+      background-color: var(--accent-orange);
+      color: white;
+    }
+    .progress-step.completed .step-circle {
+      background-color: #28a745;
+      color: white;
+    }
+    .progress-step:not(:last-child):after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: #e0e4e8;
+      z-index: -1;
+    }
+    .progress-step.completed:not(:last-child):after {
+      background-color: #28a745;
+    }
+    .material-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.8rem;
+    }
+    .material-check {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: var(--light-bg);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .material-check input {
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white py-2 border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-navy" href="index.html">
+      <!-- <i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i> -->
+       <img src="images/logo.png" alt="FMI Logo" style="height:40px; width:auto; margin-right:8px;">
+       Precision  <span class="fw-light">Meets Performance</span>
+    </a>
+    <div class="d-flex align-items-center ms-auto me-2 d-lg-none">
+      <span class="cert-badge me-2">ISO 9001:2015</span>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-semibold">
+        <li class="nav-item"><a class="nav-link active text-navy" aria-current="page" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="capabilities.html">Capabilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
+        <li class="nav-item"><a class="nav-link" href="quality.html">Quality</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <span class="d-none d-lg-block me-3 cert-badge">ISO 9001:2015</span>
+        <a href="contact.html" class="btn-nav-contact text-decoration-none fw-semibold text-white">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3">Request for Quote (RFQ)</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item active text-white" aria-current="page">Get a Quote</li>
+          </ol>
+        </nav>
+        <p class="lead mt-3 opacity-75">Submit your requirements and receive a competitive quote within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Progress Steps -->
+<section class="pt-5">
+  <div class="container">
+    <div class="progress-steps">
+      <div class="progress-step active">
+        <div class="step-circle">1</div>
+        <small class="fw-semibold">Project Details</small>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle">2</div>
+        <small class="fw-semibold">Technical Specs</small>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle">3</div>
+        <small class="fw-semibold">Upload Files</small>
+      </div>
+      <div class="progress-step">
+        <div class="step-circle">4</div>
+        <small class="fw-semibold">Review & Submit</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main RFQ Form -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Form Column -->
+      <div class="col-lg-8">
+        <div class="rfq-form-container">
+          <h3 class="fw-bold mb-4"><i class="bi bi-clipboard-check text-accent me-2"></i>Project Information</h3>
+          
+          <form>
+            <!-- Section 1: Contact Information -->
+            <div class="mb-5">
+              <h5 class="fw-bold mb-3">1. Contact Information</h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label required">Full Name</label>
+                  <input type="text" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label required">Company Name</label>
+                  <input type="text" class="form-control" placeholder="Your company" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label required">Email Address</label>
+                  <input type="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label required">Phone Number</label>
+                  <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Industry Sector</label>
+                  <select class="form-select">
+                    <option selected disabled>Select industry</option>
+                    <option>Railways</option>
+                    <option>Automotive</option>
+                    <option>Aerospace</option>
+                    <option>Defense</option>
+                    <option>Industrial Equipment</option>
+                    <option>General Engineering</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Preferred Contact Method</label>
+                  <select class="form-select">
+                    <option>Email</option>
+                    <option>Phone</option>
+                    <option>WhatsApp</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Part Details -->
+            <div class="mb-5">
+              <h5 class="fw-bold mb-3">2. Part / Component Details</h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label required">Part Name / Description</label>
+                  <input type="text" class="form-control" placeholder="e.g., Bracket, Shaft, Housing" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label required">Part Number (if any)</label>
+                  <input type="text" class="form-control" placeholder="Drawing / Reference No.">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label required">Quantity Required</label>
+                  <div class="quantity-input">
+                    <input type="number" class="form-control" placeholder="Qty" min="1" required>
+                    <select class="form-select ms-2" style="width: auto;">
+                      <option>Pieces</option>
+                      <option>Sets</option>
+                      <option>Lots</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Order Frequency</label>
+                  <select class="form-select">
+                    <option>One-time order</option>
+                    <option>Monthly</option>
+                    <option>Quarterly</option>
+                    <option>Annual contract</option>
+                    <option>Prototype only</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label required">Target Delivery</label>
+                  <select class="form-select" required>
+                    <option>As soon as possible</option>
+                    <option>Within 1 week</option>
+                    <option>Within 2 weeks</option>
+                    <option>Within 1 month</option>
+                    <option>Specific date</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3: Technical Specifications -->
+            <div class="mb-5">
+              <h5 class="fw-bold mb-3">3. Technical Specifications</h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label required">Material Type</label>
+                  <select class="form-select" required>
+                    <option selected disabled>Select material</option>
+                    <option>Mild Steel (MS)</option>
+                    <option>Stainless Steel (SS 304)</option>
+                    <option>Stainless Steel (SS 316)</option>
+                    <option>Aluminum (6061)</option>
+                    <option>Aluminum (7075)</option>
+                    <option>Brass</option>
+                    <option>Copper</option>
+                    <option>EN Series Steel</option>
+                    <option>Tool Steel</option>
+                    <option>Other (Specify in notes)</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Material Grade (if specific)</label>
+                  <input type="text" class="form-control" placeholder="e.g., EN8, D2, SS304L">
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label">Common Materials We Work With</label>
+                  <div class="material-options">
+                    <label class="material-check"><input type="checkbox"> MS</label>
+                    <label class="material-check"><input type="checkbox"> SS 304</label>
+                    <label class="material-check"><input type="checkbox"> SS 316</label>
+                    <label class="material-check"><input type="checkbox"> Aluminum</label>
+                    <label class="material-check"><input type="checkbox"> Brass</label>
+                    <label class="material-check"><input type="checkbox"> EN8</label>
+                    <label class="material-check"><input type="checkbox"> EN24</label>
+                    <label class="material-check"><input type="checkbox"> D2</label>
+                    <label class="material-check"><input type="checkbox"> HCHCr</label>
+                    <label class="material-check"><input type="checkbox"> Cast Iron</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Tolerance Required</label>
+                  <select class="form-select">
+                    <option>Standard (±0.1mm)</option>
+                    <option>Precision (±0.05mm)</option>
+                    <option>High Precision (±0.01mm)</option>
+                    <option>As per drawing</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Surface Finish</label>
+                  <select class="form-select">
+                    <option>As Machined</option>
+                    <option>Ground</option>
+                    <option>Polished</option>
+                    <option>Powder Coated</option>
+                    <option>Plated (Zinc/Nickel/Chrome)</option>
+                    <option>Anodized</option>
+                    <option>Heat Treated</option>
+                    <option>As per drawing</option>
+                  </select>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label">Manufacturing Process Required</label>
+                  <div class="d-flex flex-wrap gap-2">
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> CNC Turning</div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> VMC Machining</div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> 4-Axis Machining</div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> Milling</div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> Turning</div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> Grinding</div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> Drilling</div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> Welding</div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox"> Assembly</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4: File Upload -->
+            <div class="mb-5">
+              <h5 class="fw-bold mb-3">4. Upload Drawings / Documents</h5>
+              <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                <input type="file" id="fileInput" multiple style="display: none;" accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.jpg,.jpeg,.png,.zip">
+                <i class="bi bi-cloud-upload fs-1 text-accent mb-3"></i>
+                <h6 class="fw-bold">Drag & Drop files here or click to browse</h6>
+                <p class="small text-secondary mb-0">Supported formats: PDF, DWG, DXF, STEP, IGES, JPG, PNG (Max 25MB total)</p>
+              </div>
+              <div class="mt-3" id="fileList">
+                <!-- Uploaded files will appear here -->
+              </div>
+              <small class="text-secondary"><i class="bi bi-info-circle me-1"></i> You can upload multiple files. For large files, please use a cloud link in the notes.</small>
+            </div>
+
+            <!-- Section 5: Additional Information -->
+            <div class="mb-4">
+              <h5 class="fw-bold mb-3">5. Additional Notes / Special Requirements</h5>
+              <textarea class="form-control" rows="4" placeholder="Any specific requirements, delivery instructions, certifications needed, or other details..."></textarea>
+            </div>
+
+            <!-- Submit Buttons -->
+            <div class="d-flex gap-3">
+              <button type="submit" class="btn btn-accent btn-lg px-5">
+                <i class="bi bi-send me-2"></i>Submit RFQ
+              </button>
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4">
+                <i class="bi bi-arrow-left me-2"></i>Back
+              </button>
+            </div>
+            <p class="small text-secondary mt-3">
+              <i class="bi bi-shield-check text-accent me-1"></i> 
+              Your information is secure. We'll respond within 24 hours.
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Sidebar Information -->
+      <div class="col-lg-4">
+        <div class="info-sidebar">
+          <h5 class="fw-bold mb-4 text-white"><i class="bi bi-info-circle me-2" style="color: var(--accent-orange);"></i>Why Request a Quote?</h5>
+          
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-clock-history"></i></div>
+            <div>
+              <h6 class="fw-semibold text-white mb-1">Quick Turnaround</h6>
+              <small class="opacity-75">Response within 24 hours with detailed quotation.</small>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-cash-coin"></i></div>
+            <div>
+              <h6 class="fw-semibold text-white mb-1">Competitive Pricing</h6>
+              <small class="opacity-75">Best rates for quality manufacturing in India.</small>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-gear"></i></div>
+            <div>
+              <h6 class="fw-semibold text-white mb-1">DFM Feedback</h6>
+              <small class="opacity-75">Design for Manufacturability suggestions included.</small>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <h6 class="fw-semibold text-white mb-1">Quality Assured</h6>
+              <small class="opacity-75">ISO 9001:2015 certified processes.</small>
+            </div>
+          </div>
+
+          <hr class="opacity-25 my-4">
+          
+          <h6 class="fw-bold text-white mb-3">What Happens Next?</h6>
+          <div class="step-indicator">
+            <div class="step-number">1</div>
+            <small class="opacity-90">We review your RFQ and drawings</small>
+          </div>
+          <div class="step-indicator">
+            <div class="step-number">2</div>
+            <small class="opacity-90">Our engineers analyze feasibility</small>
+          </div>
+          <div class="step-indicator">
+            <div class="step-number">3</div>
+            <small class="opacity-90">You receive detailed quotation</small>
+          </div>
+          <div class="step-indicator">
+            <div class="step-number">4</div>
+            <small class="opacity-90">Sample approval (if required)</small>
+          </div>
+          <div class="step-indicator">
+            <div class="step-number">5</div>
+            <small class="opacity-90">Production & delivery</small>
+          </div>
+
+          <hr class="opacity-25 my-4">
+
+          <div class="text-center">
+            <i class="bi bi-telephone fs-3 mb-2 d-block" style="color: var(--accent-orange);"></i>
+            <h6 class="fw-bold text-white">Need Urgent Quote?</h6>
+            <p class="small opacity-75 mb-2">Call us directly for expedited response.</p>
+            <a href="tel:+919958093793" class="btn btn-outline-light btn-sm w-100">
+              <i class="bi bi-telephone me-1"></i> +91 99580 93793
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Card (Mobile only alternative) -->
+        <div class="d-block d-lg-none mt-4 p-4 bg-light-metal rounded-4">
+          <h6 class="fw-bold mb-3">Quick Contact</h6>
+          <p class="mb-2"><i class="bi bi-person-circle me-2 text-accent"></i> Mr. Karan Arora</p>
+          <p class="mb-2"><i class="bi bi-telephone me-2 text-accent"></i> +91 99580 93793</p>
+          <p><i class="bi bi-envelope me-2 text-accent"></i> fmindustries_431@hotmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Indicators -->
+<section class="py-5 bg-light-metal">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-md-3">
+        <i class="bi bi-check-circle fs-1 text-accent mb-2"></i>
+        <h6 class="fw-bold">ISO 9001:2015</h6>
+        <small class="text-secondary">Certified Quality</small>
+      </div>
+      <div class="col-md-3">
+        <i class="bi bi-shield fs-1 text-accent mb-2"></i>
+        <h6 class="fw-bold">Confidential</h6>
+        <small class="text-secondary">NDA Available</small>
+      </div>
+      <div class="col-md-3">
+        <i class="bi bi-truck fs-1 text-accent mb-2"></i>
+        <h6 class="fw-bold">Pan India Delivery</h6>
+        <small class="text-secondary">Export Ready</small>
+      </div>
+      <div class="col-md-3">
+        <i class="bi bi-headset fs-1 text-accent mb-2"></i>
+        <h6 class="fw-bold">24/7 Support</h6>
+        <small class="text-secondary">Dedicated Manager</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-4">
+        <h5 class="text-white fw-bold"><i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i>FRIENDS METAL INDUSTRIES</h5>
+        <p class="small opacity-75">Precision Machined Components & Jigs Fixtures. Serving Railways, Automotive, Defense and Industrial sectors since 1987.</p>
+        <p class="small"><i class="bi bi-geo-alt-fill me-1"></i> C-431 Sector 10, Noida, UP 201301<br>Unit 2: W-20 Sector 11, Noida</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="text-white">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Capabilities</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Industries</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Quality</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Contact Info</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><i class="bi bi-person-circle me-1"></i> Mr. Rajesh Arora: +91 98111 44294</li>
+          <li class="mb-2"><i class="bi bi-person-circle me-1"></i> Mr. Karan Arora: +91 99580 93793</li>
+          <li class="mb-2"><i class="bi bi-envelope me-1"></i> fmindustries_431@hotmail.com</li>
+          <li class="mt-3">
+            <span class="badge bg-light text-dark p-2">ISO 9001:2015 Certified</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="opacity-25">
+    <div class="d-flex flex-wrap justify-content-between align-items-center small">
+      <span class="text-secondary">© 2025 Friends Metal Industries. All rights reserved.</span>
+      <span class="text-secondary">
+        <i class="bi bi-instagram me-2"></i>
+        <i class="bi bi-linkedin me-2"></i>
+        <i class="bi bi-facebook"></i>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Simple file upload display
+  document.getElementById('fileInput').addEventListener('change', function(e) {
+    const fileList = document.getElementById('fileList');
+    fileList.innerHTML = '';
+    
+    for (let i = 0; i < this.files.length; i++) {
+      const file = this.files[i];
+      const fileItem = document.createElement('div');
+      fileItem.className = 'd-flex align-items-center bg-light p-2 rounded-3 mb-2';
+      fileItem.innerHTML = `
+        <i class="bi bi-file-earmark-text text-accent me-2"></i>
+        <span class="small">${file.name} (${(file.size / 1024).toFixed(1)} KB)</span>
+        <i class="bi bi-check-circle-fill text-success ms-auto"></i>
+      `;
+      fileList.appendChild(fileItem);
+    }
+  });
+</script>
+</body>
+</html>

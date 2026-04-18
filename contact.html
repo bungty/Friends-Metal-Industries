@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Friends Metal Industries | Noida, India</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e1e2f;
+      background-color: #ffffff;
+    }
+    :root {
+      --navy: #0a192f;
+      --metal-grey: #2c3e50;
+      --accent-orange: #e67e22;
+      --light-bg: #f8fafc;
+    }
+    .bg-navy {
+      background-color: var(--navy);
+    }
+    .bg-light-metal {
+      background-color: var(--light-bg);
+    }
+    .text-navy {
+      color: var(--navy);
+    }
+    .text-accent {
+      color: var(--accent-orange);
+    }
+    .btn-accent {
+      background-color: var(--accent-orange);
+      border-color: var(--accent-orange);
+      color: white;
+      font-weight: 500;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      transition: all 0.2s ease;
+    }
+    .btn-accent:hover {
+      background-color: #d35400;
+      border-color: #d35400;
+      color: white;
+    }
+    .page-header {
+      background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.85)), url('https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center center/cover no-repeat;
+      padding: 5rem 0;
+      color: white;
+    }
+    .section-title {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      color: #5c6b7a;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .cert-badge {
+      background-color: var(--accent-orange);
+      color: white;
+      font-weight: 600;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    .btn-nav-contact {
+      background-color: var(--accent-orange);
+      color: white !important;
+      border-radius: 30px;
+      padding: 0.4rem 1.5rem !important;
+      margin-left: 0.5rem;
+    }
+    .contact-info-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 15px 30px -8px rgba(0,0,0,0.08);
+      height: 100%;
+      border-bottom: 4px solid var(--accent-orange);
+      transition: transform 0.2s;
+    }
+    .contact-info-card:hover {
+      transform: translateY(-5px);
+    }
+    .contact-icon {
+      font-size: 2.5rem;
+      color: var(--accent-orange);
+      margin-bottom: 1.2rem;
+    }
+    .inquiry-form {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.1);
+    }
+    .form-control, .form-select {
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #e0e4e8;
+      background-color: var(--light-bg);
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--accent-orange);
+      box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+    }
+    .map-container {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px -8px rgba(0,0,0,0.1);
+      height: 100%;
+      min-height: 350px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      border: 0;
+    }
+    .footer {
+      background-color: #0b1622;
+      color: #ccc;
+    }
+    .address-card {
+      background: var(--light-bg);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent-orange);
+    }
+    .key-person-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px -5px rgba(0,0,0,0.05);
+      height: 100%;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+    .btn-outline-navy {
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      font-weight: 500;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+    }
+    .btn-outline-navy:hover {
+      background-color: var(--navy);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white py-2 border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-navy" href="index.html">
+      <!-- <i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i> -->
+       <img src="images/logo.png" alt="FMI Logo" style="height:40px; width:auto; margin-right:8px;">
+        Precision  <span class="fw-light">Meets Performance</span>
+    </a>
+    <div class="d-flex align-items-center ms-auto me-2 d-lg-none">
+      <span class="cert-badge me-2">ISO 9001:2015</span>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-semibold">
+        <li class="nav-item"><a class="nav-link active text-navy" aria-current="page" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="capabilities.html">Capabilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
+        <li class="nav-item"><a class="nav-link" href="quality.html">Quality</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <span class="d-none d-lg-block me-3 cert-badge">ISO 9001:2015</span>
+        <a href="contact.html" class="btn-nav-contact text-decoration-none fw-semibold text-white">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item active text-white" aria-current="page">Contact</li>
+          </ol>
+        </nav>
+        <p class="lead mt-3 opacity-75">Get in touch with our team for quotes, inquiries, or partnership opportunities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Info Cards -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="contact-info-card text-center">
+          <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+          <h5 class="fw-bold mb-3">Visit Our Facility</h5>
+          <p class="small text-secondary mb-1"><strong>Unit 1:</strong> C-431, Sector 10</p>
+          <p class="small text-secondary mb-1"><strong>Unit 2:</strong> W-20, Sector 11</p>
+          <p class="small text-secondary">Noida, Uttar Pradesh - 201301</p>
+          <hr class="w-50 mx-auto">
+          <small class="text-accent fw-semibold"><i class="bi bi-building me-1"></i> 10,000 Sq. Ft. Owned Facility</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-info-card text-center">
+          <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+          <h5 class="fw-bold mb-3">Call Us</h5>
+          <p class="mb-2"><i class="bi bi-person-circle me-1 text-accent"></i> <strong>Mr. Rajesh Arora</strong><br><span class="text-secondary">+91 98111 44294</span></p>
+          <p class="mb-2"><i class="bi bi-person-circle me-1 text-accent"></i> <strong>Mr. Karan Arora</strong><br><span class="text-secondary">+91 99580 93793</span></p>
+          <hr class="w-50 mx-auto">
+          <small class="text-secondary"><i class="bi bi-clock me-1"></i> Mon-Sat: 9:00 AM - 6:00 PM</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-info-card text-center">
+          <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+          <h5 class="fw-bold mb-3">Email Us</h5>
+          <p class="mb-2"><strong>Primary:</strong><br><span class="text-secondary">fmindustries_431@hotmail.com</span></p>
+          <p class="mb-2"><strong>Alternate:</strong><br><span class="text-secondary">info@friendsmetal.com</span></p>
+          <hr class="w-50 mx-auto">
+          <small class="text-secondary"><i class="bi bi-reply-fill me-1"></i> Response within 2 hours</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inquiry Form & Map Section -->
+<section class="py-5 bg-light-metal">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Inquiry Form -->
+      <div class="col-lg-7">
+        <div class="inquiry-form">
+          <div class="d-flex align-items-center mb-4">
+            <i class="bi bi-chat-dots fs-1 text-accent me-3"></i>
+            <div>
+              <h3 class="fw-bold mb-1">Send Us a Message</h3>
+              <p class="text-secondary mb-0">Fill the form below and we'll get back to you shortly.</p>
+            </div>
+          </div>
+          
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Full Name *</label>
+                <input type="text" class="form-control" placeholder="Enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Company Name</label>
+                <input type="text" class="form-control" placeholder="Your company (optional)">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Email Address *</label>
+                <input type="email" class="form-control" placeholder="your@email.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Phone Number *</label>
+                <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Subject *</label>
+                <select class="form-select" required>
+                  <option value="" selected disabled>Select inquiry type</option>
+                  <option>Request for Quote (RFQ)</option>
+                  <option>General Inquiry</option>
+                  <option>Partnership Opportunity</option>
+                  <option>Schedule Plant Visit</option>
+                  <option>Career / Job Application</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Message *</label>
+                <textarea class="form-control" rows="5" placeholder="Please describe your requirements, including part drawings if available..." required></textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Upload Drawing (Optional)</label>
+                <input type="file" class="form-control" accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.jpg,.png">
+                <small class="text-secondary">Accepted formats: PDF, DWG, DXF, STEP, IGES, JPG, PNG (Max 10MB)</small>
+              </div>
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-accent btn-lg px-5 w-100">
+                  <i class="bi bi-send me-2"></i>Submit Inquiry
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Map & Additional Info -->
+      <div class="col-lg-5">
+        <div class="map-container mb-4">
+          <!-- Embedded Google Maps - Noida Sector 10 location -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.8632029482947!2d77.330045!3d28.580123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce45df94f2f9b%3A0x8b3a7b6c5a5a5a5a!2sSector%2010%2C%20Noida%2C%20Uttar%20Pradesh%20201301!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Address Details -->
+        <div class="address-card">
+          <h5 class="fw-bold mb-3"><i class="bi bi-pin-map-fill text-accent me-2"></i>Factory Addresses</h5>
+          <div class="mb-3">
+            <h6 class="fw-semibold">Unit 1 (Main Facility)</h6>
+            <p class="small text-secondary mb-1">C-431, Sector 10</p>
+            <p class="small text-secondary mb-1">Noida, Uttar Pradesh - 201301</p>
+            <p class="small text-secondary"><i class="bi bi-telephone me-1"></i> +91 98111 44294</p>
+          </div>
+          <div>
+            <h6 class="fw-semibold">Unit 2</h6>
+            <p class="small text-secondary mb-1">W-20, Sector 11</p>
+            <p class="small text-secondary mb-1">Noida, Uttar Pradesh - 201301</p>
+          </div>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="address-card">
+          <h5 class="fw-bold mb-3"><i class="bi bi-clock-history text-accent me-2"></i>Business Hours</h5>
+          <div class="d-flex justify-content-between mb-2">
+            <span class="fw-semibold">Monday - Saturday</span>
+            <span class="text-secondary">9:00 AM - 6:00 PM</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span class="fw-semibold">Sunday</span>
+            <span class="text-secondary">Closed</span>
+          </div>
+          <hr>
+          <small class="text-secondary"><i class="bi bi-info-circle me-1"></i> Plant visits by prior appointment only.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Contact Persons -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-subtitle">— Direct Contacts</span>
+      <h2 class="section-title display-5 fw-bold">Key Personnel</h2>
+      <p class="mx-auto text-secondary" style="max-width: 600px;">Reach out directly to our leadership team for specific inquiries.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-5">
+        <div class="key-person-card">
+          <i class="bi bi-person-circle fs-1 text-navy mb-3"></i>
+          <h5 class="fw-bold">Mr. Rajesh Arora</h5>
+          <p class="text-accent fw-semibold mb-2">Founder & Proprietor</p>
+          <p class="small text-secondary mb-3">Mechanical Engineer with 35+ years experience. Handles strategic partnerships and key accounts.</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="tel:+919811144294" class="btn btn-outline-navy btn-sm"><i class="bi bi-telephone me-1"></i> +91 98111 44294</a>
+            <a href="mailto:fmindustries_431@hotmail.com" class="btn btn-outline-navy btn-sm"><i class="bi bi-envelope me-1"></i> Email</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="key-person-card">
+          <i class="bi bi-person-circle fs-1 text-navy mb-3"></i>
+          <h5 class="fw-bold">Mr. Karan Arora</h5>
+          <p class="text-accent fw-semibold mb-2">Next-Gen Leadership</p>
+          <p class="small text-secondary mb-3">Handles technical queries, design reviews, RFQs, and business development.</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="tel:+919958093793" class="btn btn-outline-navy btn-sm"><i class="bi bi-telephone me-1"></i> +91 99580 93793</a>
+            <a href="mailto:fmindustries_431@hotmail.com" class="btn btn-outline-navy btn-sm"><i class="bi bi-envelope me-1"></i> Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RFQ / Download Section -->
+<section class="py-5 bg-navy text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <h3 class="fw-bold mb-3">Ready to Start Your Project?</h3>
+        <p class="lead mb-0 opacity-75">Download our company profile or submit an RFQ. Our team will respond within 24 hours.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+        <a href="#" class="btn btn-accent btn-lg me-2"><i class="bi bi-file-text me-2"></i>Download Profile</a>
+        <a href="#" class="btn btn-outline-light btn-lg"><i class="bi bi-envelope-paper me-2"></i>Submit RFQ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-4">
+        <h5 class="text-white fw-bold"><i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i>FRIENDS METAL INDUSTRIES</h5>
+        <p class="small opacity-75">Precision Machined Components & Jigs Fixtures. Serving Railways, Automotive, Defense and Industrial sectors since 1987.</p>
+        <p class="small"><i class="bi bi-geo-alt-fill me-1"></i> C-431 Sector 10, Noida, UP 201301<br>Unit 2: W-20 Sector 11, Noida</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="text-white">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Capabilities</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Industries</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Quality</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Gallery</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Contact Info</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><i class="bi bi-person-circle me-1"></i> Mr. Rajesh Arora: +91 98111 44294</li>
+          <li class="mb-2"><i class="bi bi-person-circle me-1"></i> Mr. Karan Arora: +91 99580 93793</li>
+          <li class="mb-2"><i class="bi bi-envelope me-1"></i> fmindustries_431@hotmail.com</li>
+          <li class="mt-3">
+            <span class="badge bg-light text-dark p-2">ISO 9001:2015 Certified</span>
+          </li>
+        </ul>
+        <div class="mt-3">
+          <a href="#" class="text-secondary me-3"><i class="bi bi-linkedin fs-5"></i></a>
+          <a href="#" class="text-secondary me-3"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#" class="text-secondary"><i class="bi bi-instagram fs-5"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="opacity-25">
+    <div class="d-flex flex-wrap justify-content-between align-items-center small">
+      <span class="text-secondary">© 2025 Friends Metal Industries. All rights reserved.</span>
+      <span class="text-secondary">
+        <a href="#" class="text-secondary text-decoration-none me-3">Privacy Policy</a>
+        <a href="#" class="text-secondary text-decoration-none">Terms of Use</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

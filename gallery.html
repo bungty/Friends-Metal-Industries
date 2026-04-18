@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | CNC Machine Shop & Components | Friends Metal Industries</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Lightbox CSS (GLightbox alternative - simple CSS modal) -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e1e2f;
+      background-color: #ffffff;
+    }
+    :root {
+      --navy: #0a192f;
+      --metal-grey: #2c3e50;
+      --accent-orange: #e67e22;
+      --light-bg: #f8fafc;
+    }
+    .bg-navy {
+      background-color: var(--navy);
+    }
+    .bg-light-metal {
+      background-color: var(--light-bg);
+    }
+    .text-navy {
+      color: var(--navy);
+    }
+    .text-accent {
+      color: var(--accent-orange);
+    }
+    .btn-accent {
+      background-color: var(--accent-orange);
+      border-color: var(--accent-orange);
+      color: white;
+      font-weight: 500;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      transition: all 0.2s ease;
+    }
+    .btn-accent:hover {
+      background-color: #d35400;
+      border-color: #d35400;
+      color: white;
+    }
+    .page-header {
+      background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.85)), url('images/induestries.webp') center center/cover no-repeat;
+      padding: 5rem 0;
+      color: white;
+    }
+    .section-title {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      color: #5c6b7a;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .cert-badge {
+      background-color: var(--accent-orange);
+      color: white;
+      font-weight: 600;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    .btn-nav-contact {
+      background-color: var(--accent-orange);
+      color: white !important;
+      border-radius: 30px;
+      padding: 0.4rem 1.5rem !important;
+      margin-left: 0.5rem;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px -5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 24px;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px -8px rgba(0,0,0,0.15);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(10, 25, 47, 0.9));
+      color: white;
+      padding: 1.5rem 1rem 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-overlay h6 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .gallery-overlay small {
+      opacity: 0.9;
+    }
+    .filter-btn {
+      background: white;
+      border: 1px solid #dee2e6;
+      color: var(--navy);
+      font-weight: 500;
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      margin: 0 0.3rem 0.5rem;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--accent-orange);
+      border-color: var(--accent-orange);
+      color: white;
+    }
+    .footer {
+      background-color: #0b1622;
+      color: #ccc;
+    }
+    .video-thumb {
+      position: relative;
+    }
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3.5rem;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      opacity: 0.8;
+    }
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 25, 47, 0.95);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover {
+      color: var(--accent-orange);
+    }
+    .lightbox-caption {
+      color: white;
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      padding: 1rem;
+      transition: color 0.2s;
+    }
+    .lightbox-prev:hover, .lightbox-next:hover {
+      color: var(--accent-orange);
+    }
+    .lightbox-prev {
+      left: -60px;
+    }
+    .lightbox-next {
+      right: -60px;
+    }
+    @media (max-width: 768px) {
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white py-2 border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-navy" href="index.html">
+      <!-- <i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i> -->
+       <img src="images/logo.png" alt="FMI Logo" style="height:40px; width:auto; margin-right:8px;">
+         Precision  <span class="fw-light">Meets Performance</span>
+    </a>
+    <div class="d-flex align-items-center ms-auto me-2 d-lg-none">
+      <span class="cert-badge me-2">ISO 9001:2015</span>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-semibold">
+        <li class="nav-item"><a class="nav-link active text-navy" aria-current="page" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="capabilities.html">Capabilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
+        <li class="nav-item"><a class="nav-link" href="quality.html">Quality</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <span class="d-none d-lg-block me-3 cert-badge">ISO 9001:2015</span>
+        <a href="contact.html" class="btn-nav-contact text-decoration-none fw-semibold text-white">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3">Gallery & Facility Tour</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item active text-white" aria-current="page">Gallery</li>
+          </ol>
+        </nav>
+        <p class="lead mt-3 opacity-75">Take a visual tour of our state-of-the-art manufacturing facility and precision components.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Filter Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="section-subtitle">— Visual Journey</span>
+      <h2 class="section-title display-5 fw-bold">Explore Our Facility</h2>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="d-flex flex-wrap justify-content-center mb-5">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="machine-shop">Machine Shop</button>
+      <button class="filter-btn" data-filter="components">Components</button>
+      <button class="filter-btn" data-filter="inspection">Inspection & Quality</button>
+      <button class="filter-btn" data-filter="facility">Facility</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="row" id="galleryGrid">
+     
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="machine-shop">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="CNC Turning Center - ACE Micromatic & LMW">
+          <img src="https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=800" alt="CNC Lathe">
+          <div class="gallery-overlay">
+            <h6>CNC Turning Center</h6>
+            <small>ACE Micromatic & LMW</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="machine-shop">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/1267346/pexels-photo-1267346.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="COSMOS VMC with Rotary Table">
+          <img src="https://images.pexels.com/photos/1267346/pexels-photo-1267346.jpeg?auto=compress&cs=tinysrgb&w=800" alt="COSMOS VMC">
+          <div class="gallery-overlay">
+            <h6>COSMOS VMC</h6>
+            <small>With Rotary Table</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Components Images -->
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="components">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="Precision Machined Components - Automotive Grade">
+          <img src="https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Machined Components">
+          <div class="gallery-overlay">
+            <h6>Precision Components</h6>
+            <small>Automotive & Railway Grade</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="components">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="Jigs & Fixtures for Wiring Harness">
+          <img src="https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Jigs and Fixtures">
+          <div class="gallery-overlay">
+            <h6>Jigs & Fixtures</h6>
+            <small>Circuit Check & Pneumatic Clamp</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="components">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="Sheet Metal Fabricated Parts">
+          <img src="https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sheet Metal Parts">
+          <div class="gallery-overlay">
+            <h6>Sheet Metal Parts</h6>
+            <small>Laser Cut & Welded Assemblies</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inspection Images -->
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="inspection">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/3912954/pexels-photo-3912954.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="Video Measuring Machine (VMM) - Precision Metrology">
+          <img src="https://images.pexels.com/photos/3912954/pexels-photo-3912954.jpeg?auto=compress&cs=tinysrgb&w=800" alt="VMM Inspection">
+          <div class="gallery-overlay">
+            <h6>Video Measuring Machine</h6>
+            <small>Non-Contact Precision Measurement</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="inspection">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="Calibrated Measuring Instruments">
+          <img src="https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Measuring Instruments">
+          <div class="gallery-overlay">
+            <h6>Quality Lab</h6>
+            <small>Fully Calibrated Instruments</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="inspection">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="Surface Roughness Testing">
+          <img src="https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Roughness Tester">
+          <div class="gallery-overlay">
+            <h6>Roughness Testing</h6>
+            <small>Surface Finish Verification</small>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="facility">
+        <div class="gallery-item" data-src="https://images.pexels.com/photos/1570393/pexels-photo-1570393.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="Conventional Machine Shop">
+          <img src="https://images.pexels.com/photos/1570393/pexels-photo-1570393.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Conventional Machines">
+          <div class="gallery-overlay">
+            <h6>Conventional Machine Shop</h6>
+            <small>Lathe, Milling & Grinding</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 gallery-item-wrapper" data-category="facility">
+        <div class="gallery-item video-thumb" data-src="https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800" data-caption="Facility Overview - C-431 Sector 10, Noida">
+          <img src="https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Facility Exterior">
+          <div class="gallery-overlay">
+            <h6>Facility Overview</h6>
+            <small>C-431 Sector 10, Noida</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Facility Stats Banner -->
+<section class="py-4 bg-navy text-white">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-md-3 col-6">
+        <i class="bi bi-building fs-1 mb-2 d-block" style="color: var(--accent-orange);"></i>
+        <h5 class="fw-bold">10,000</h5>
+        <small>Sq. Ft. Facility</small>
+      </div>
+      <div class="col-md-3 col-6">
+        <i class="bi bi-cpu fs-1 mb-2 d-block" style="color: var(--accent-orange);"></i>
+        <h5 class="fw-bold">14+</h5>
+        <small>VMC Machines</small>
+      </div>
+      <div class="col-md-3 col-6">
+        <i class="bi bi-tools fs-1 mb-2 d-block" style="color: var(--accent-orange);"></i>
+        <h5 class="fw-bold">5+</h5>
+        <small>CNC Lathes</small>
+      </div>
+      <div class="col-md-3 col-6">
+        <i class="bi bi-camera-video fs-1 mb-2 d-block" style="color: var(--accent-orange);"></i>
+        <h5 class="fw-bold">VMM</h5>
+        <small>Inspection Lab</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-light-metal">
+  <div class="container text-center py-3">
+    <i class="bi bi-camera fs-1 mb-3 d-block text-accent"></i>
+    <h2 class="display-6 fw-bold text-navy">Want to see more?</h2>
+    <p class="lead mb-4 text-secondary">Schedule a plant visit to experience our capabilities firsthand.</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="#" class="btn btn-accent btn-lg px-4"><i class="bi bi-calendar-check me-2"></i>Schedule a Visit</a>
+      <a href="#" class="btn btn-outline-navy btn-lg px-4 border-secondary text-navy"><i class="bi bi-download me-2"></i>Download Brochure</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-4">
+        <h5 class="text-white fw-bold"><i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i>FRIENDS METAL INDUSTRIES</h5>
+        <p class="small opacity-75">Precision Machined Components & Jigs Fixtures. Serving Railways, Automotive, Defense and Industrial sectors since 1987.</p>
+        <p class="small"><i class="bi bi-geo-alt-fill me-1"></i> C-431 Sector 10, Noida, UP 201301<br>Unit 2: W-20 Sector 11, Noida</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="text-white">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Capabilities</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Industries</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Quality</a></li>
+          <li class="mb-2"><a href="#" class="text-secondary text-decoration-none">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Contact</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><i class="bi bi-person-circle me-1"></i> Mr. Rajesh Arora: +91 98111 44294</li>
+          <li class="mb-2"><i class="bi bi-person-circle me-1"></i> Mr. Karan Arora: +91 99580 93793</li>
+          <li class="mb-2"><i class="bi bi-envelope me-1"></i> fmindustries_431@hotmail.com</li>
+          <li class="mt-3">
+            <span class="badge bg-light text-dark p-2">ISO 9001:2015 Certified</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="opacity-25">
+    <div class="d-flex flex-wrap justify-content-between align-items-center small">
+      <span class="text-secondary">© 2025 Friends Metal Industries. All rights reserved.</span>
+      <span class="text-secondary">
+        <i class="bi bi-instagram me-2"></i>
+        <i class="bi bi-linkedin me-2"></i>
+        <i class="bi bi-facebook"></i>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal">
+  <div class="lightbox-content">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-prev" id="lightboxPrev"><i class="bi bi-chevron-left"></i></span>
+    <span class="lightbox-next" id="lightboxNext"><i class="bi bi-chevron-right"></i></span>
+    <img src="" alt="" id="lightboxImg">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    'use strict';
+
+    // Filter Functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryWrappers = document.querySelectorAll('.gallery-item-wrapper');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    // Lightbox Elements
+    const modal = document.getElementById('lightboxModal');
+    const modalImg = document.getElementById('lightboxImg');
+    const modalCaption = document.getElementById('lightboxCaption');
+    const closeBtn = document.getElementById('lightboxClose');
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
+    
+    let currentIndex = 0;
+    let currentItems = [];
+
+    // Filter click handler
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filterValue = this.getAttribute('data-filter');
+        
+        galleryWrappers.forEach(wrapper => {
+          if (filterValue === 'all' || wrapper.getAttribute('data-category') === filterValue) {
+            wrapper.style.display = 'block';
+          } else {
+            wrapper.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Update lightbox items based on visible gallery items
+    function updateVisibleItems() {
+      const visibleWrappers = Array.from(galleryWrappers).filter(w => w.style.display !== 'none');
+      currentItems = visibleWrappers.map(w => w.querySelector('.gallery-item')).filter(item => item !== null);
+    }
+
+    // Open Lightbox
+    function openLightbox(index) {
+      updateVisibleItems();
+      if (currentItems.length === 0) return;
+      
+      if (index < 0) index = 0;
+      if (index >= currentItems.length) index = currentItems.length - 1;
+      currentIndex = index;
+      
+      const item = currentItems[currentIndex];
+      const imgSrc = item.getAttribute('data-src');
+      const caption = item.getAttribute('data-caption') || '';
+      
+      modalImg.src = imgSrc;
+      modalCaption.textContent = caption;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close Lightbox
+    function closeLightbox() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Navigate Lightbox
+    function prevImage() {
+      updateVisibleItems();
+      if (currentItems.length === 0) return;
+      currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
+      const item = currentItems[currentIndex];
+      modalImg.src = item.getAttribute('data-src');
+      modalCaption.textContent = item.getAttribute('data-caption') || '';
+    }
+
+    function nextImage() {
+      updateVisibleItems();
+      if (currentItems.length === 0) return;
+      currentIndex = (currentIndex + 1) % currentItems.length;
+      const item = currentItems[currentIndex];
+      modalImg.src = item.getAttribute('data-src');
+      modalCaption.textContent = item.getAttribute('data-caption') || '';
+    }
+
+    // Add click listeners to gallery items
+    galleryItems.forEach((item, idx) => {
+      item.addEventListener('click', function(e) {
+        // Find index among all items (but we'll update visible items on open)
+        updateVisibleItems();
+        const visibleIndex = currentItems.indexOf(this);
+        if (visibleIndex !== -1) {
+          openLightbox(visibleIndex);
+        }
+      });
+    });
+
+    // Lightbox controls
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', prevImage);
+    nextBtn.addEventListener('click', nextImage);
+    
+    // Click outside to close
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (!modal.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      }
+    });
+
+    // Initialize visible items
+    updateVisibleItems();
+  })();
+</script>
+</body>
+</html>

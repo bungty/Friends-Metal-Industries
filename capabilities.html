@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capabilities | CNC VMC Machining | Friends Metal Industries</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e1e2f;
+      background-color: #ffffff;
+    }
+    :root {
+      --navy: #0a192f;
+      --metal-grey: #2c3e50;
+      --accent-orange: #e67e22;
+      --light-bg: #f8fafc;
+    }
+    .bg-navy {
+      background-color: var(--navy);
+    }
+    .bg-light-metal {
+      background-color: var(--light-bg);
+    }
+    .text-navy {
+      color: var(--navy);
+    }
+    .text-accent {
+      color: var(--accent-orange);
+    }
+    .btn-accent {
+      background-color: var(--accent-orange);
+      border-color: var(--accent-orange);
+      color: white;
+      font-weight: 500;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+      transition: all 0.2s ease;
+    }
+    .btn-accent:hover {
+      background-color: #d35400;
+      border-color: #d35400;
+      color: white;
+    }
+    .btn-outline-accent {
+      border: 2px solid white;
+      color: white;
+      font-weight: 500;
+      padding: 0.6rem 2rem;
+      border-radius: 40px;
+    }
+    .btn-outline-accent:hover {
+      background-color: white;
+      color: var(--navy);
+    }
+    .page-header {
+      background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.85)), url('images/about.webp') center center/cover no-repeat;
+      padding: 5rem 0;
+      color: white;
+    }
+    .section-title {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      color: #5c6b7a;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .cert-badge {
+      background-color: var(--accent-orange);
+      color: white;
+      font-weight: 600;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    .btn-nav-contact {
+      background-color: var(--accent-orange);
+      color: white !important;
+      border-radius: 30px;
+      padding: 0.4rem 1.5rem !important;
+      margin-left: 0.5rem;
+    }
+    .capability-main-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.08);
+      height: 100%;
+      border-bottom: 5px solid var(--accent-orange);
+      transition: transform 0.2s;
+    }
+    .capability-main-card:hover {
+      transform: translateY(-8px);
+    }
+    .machine-table {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+    }
+    .machine-table th {
+      background-color: var(--navy);
+      color: white;
+      font-weight: 600;
+      padding: 1rem;
+    }
+    .machine-table td {
+      padding: 0.9rem 1rem;
+      vertical-align: middle;
+    }
+    .secondary-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: 0 8px 20px -5px rgba(0,0,0,0.05);
+      height: 100%;
+      border-left: 4px solid var(--accent-orange);
+    }
+    .footer {
+      background-color: #0b1622;
+      color: #ccc;
+    }
+    .icon-large {
+      font-size: 3rem;
+      color: var(--accent-orange);
+      margin-bottom: 1.2rem;
+    }
+    .nav-pills .nav-link.active {
+      background-color: var(--accent-orange);
+      color: white;
+    }
+    .nav-pills .nav-link {
+      color: var(--navy);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white py-2 border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-navy" href="index.html">
+      <!-- <i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i> -->
+       <img src="images/logo.png" alt="FMI Logo" style="height:40px; width:auto; margin-right:8px;">
+         Precision  <span class="fw-light">Meets Performance</span>
+    </a>
+    <div class="d-flex align-items-center ms-auto me-2 d-lg-none">
+      <span class="cert-badge me-2">ISO 9001:2015</span>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-semibold">
+        <li class="nav-item"><a class="nav-link active text-navy" aria-current="page" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="capabilities.html">Capabilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
+        <li class="nav-item"><a class="nav-link" href="quality.html">Quality</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <span class="d-none d-lg-block me-3 cert-badge">ISO 9001:2015</span>
+        <a href="contact.html" class="btn-nav-contact text-decoration-none fw-semibold text-white">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3">Our Manufacturing Capabilities</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item active text-white" aria-current="page">Capabilities</li>
+          </ol>
+        </nav>
+        <p class="lead mt-3 opacity-75">From precision CNC machining to complex jigs & fixtures — all under one roof.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Capabilities Overview -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-subtitle">— What We Excel At</span>
+      <h2 class="section-title display-5 fw-bold">Comprehensive Manufacturing Solutions</h2>
+      <p class="mx-auto text-secondary" style="max-width: 750px;">We combine advanced machinery, skilled workforce, and robust processes to deliver precision components.</p>
+    </div>
+
+    <!-- Main 4 Capability Cards -->
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="capability-main-card text-center">
+          <div class="icon-large"><i class="bi bi-cpu"></i></div>
+          <h4 class="fw-bold mb-3">CNC / VMC Machining</h4>
+          <p class="small text-secondary">High-precision components using advanced CNC and VMC machines ensuring tight tolerances and repeatability.</p>
+          <hr class="w-25 mx-auto">
+          <span class="badge bg-navy text-white p-2">3, 4 & 5 Axis</span>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="capability-main-card text-center">
+          <div class="icon-large"><i class="bi bi-puzzle"></i></div>
+          <h4 class="fw-bold mb-3">Jigs & Fixtures</h4>
+          <p class="small text-secondary">Custom design & manufacturing for wiring harness, pneumatic clamping, assembly & inspection fixtures.</p>
+          <hr class="w-25 mx-auto">
+          <span class="badge bg-navy text-white p-2">Circuit Check Jigs</span>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="capability-main-card text-center">
+          <div class="icon-large"><i class="bi bi-tools"></i></div>
+          <h4 class="fw-bold mb-3">Sheet Metal Fabrication</h4>
+          <p class="small text-secondary">Laser cutting, bending, punching, welding & assembly. Integrated with finishing partners.</p>
+          <hr class="w-25 mx-auto">
+          <span class="badge bg-navy text-white p-2">Welding & Assembly</span>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="capability-main-card text-center">
+          <div class="icon-large"><i class="bi bi-pencil-square"></i></div>
+          <h4 class="fw-bold mb-3">Design & Prototyping</h4>
+          <p class="small text-secondary">SolidWorks & SolidCAM programming. Fast DFM feedback and prototype development.</p>
+          <hr class="w-25 mx-auto">
+          <span class="badge bg-navy text-white p-2">2 Workstations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CNC / VMC Machine List (Detailed) -->
+<section class="py-5 bg-light-metal">
+  <div class="container">
+    <div class="row align-items-center mb-4">
+      <div class="col-md-8">
+        <span class="section-subtitle">— Our Arsenal</span>
+        <h3 class="section-title fw-bold">CNC & VMC Machine Fleet</h3>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <span class="badge bg-navy text-white p-3">14+ VMCs | 5+ CNC Lathes</span>
+      </div>
+    </div>
+
+    <div class="machine-table">
+      <table class="table table-striped mb-0">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Machine Type</th>
+            <th>Specification (mm)</th>
+            <th>Make</th>
+            <th>Qty</th>
+            <th>Special Feature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>VMC</td><td>580 x 420 x 515</td><td>FEELER</td><td>3</td><td>—</td></tr>
+          <tr><td>2</td><td>VMC</td><td>1000 x 500 x 515</td><td>FEELER</td><td>1</td><td>—</td></tr>
+          <tr><td>3</td><td>VMC</td><td>1000 x 500 x 515</td><td>FEELER</td><td>1</td><td><span class="badge bg-accent text-white">4-Axis Rotary</span></td></tr>
+          <tr><td>4</td><td>VMC</td><td>500 x 400 x 330</td><td>DMTG</td><td>3</td><td>—</td></tr>
+          <tr><td>5</td><td>VMC</td><td>1000 x 500 x 515</td><td>COSMOS</td><td>3</td><td>—</td></tr>
+          <tr><td>6</td><td>VMC</td><td>1000 x 500 x 515</td><td>COSMOS</td><td>2</td><td><span class="badge bg-accent text-white">With Rotary Table</span></td></tr>
+          <tr><td>7</td><td>CNC Lathe</td><td>ø300 x 400</td><td>ACE MICROMATIC</td><td>2</td><td>—</td></tr>
+          <tr><td>8</td><td>CNC Lathe</td><td>ø200 x 250</td><td>AUTO TURNER</td><td>1</td><td>—</td></tr>
+          <tr><td>9</td><td>CNC Lathe</td><td>ø300 x 500</td><td>LMW</td><td>1</td><td>—</td></tr>
+          <tr><td>10</td><td>CNC Lathe</td><td>ø200 x 200</td><td>ACE APOLLO</td><td>1</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small text-secondary mt-3 text-center">* All machines are supported by SolidCAM programming for optimized tool paths.</p>
+  </div>
+</section>
+
+<!-- Conventional Machines & Support -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <span class="section-subtitle">— Conventional Support</span>
+        <h3 class="section-title fw-bold mb-4">Conventional Machine Shop</h3>
+        <p class="mb-4">A dedicated floor where manual precision complements CNC automation. Essential for low-volume, high-mix jobs and secondary operations.</p>
+        
+        <div class="machine-table">
+          <table class="table table-sm table-borderless mb-0">
+            <thead class="bg-metal text-white">
+              <tr><th>Machine</th><th>Specification</th><th>Make</th><th>Qty</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Lathe</td><td>6 ft x 10"</td><td>Everest / J.J.C / Jyoti</td><td>6</td></tr>
+              <tr><td>Lathe</td><td>8 ft x 12"</td><td>Everest</td><td>1</td></tr>
+              <tr><td>Milling (Vertical)</td><td>28" x 8"</td><td>Kay Dee Engg.</td><td>13</td></tr>
+              <tr><td>Milling (Univ.)</td><td>42" x 9"</td><td>HMT / Precicut</td><td>4</td></tr>
+              <tr><td>Surface Grinder</td><td>8" x 16" / 7" x 14"</td><td>Guru Arjun / Gulati</td><td>3</td></tr>
+              <tr><td>Power Press</td><td>10 Ton</td><td>Gulati</td><td>1</td></tr>
+              <tr><td>Drill Machine</td><td>1" / ½" / ¾"</td><td>Jikso / Machless</td><td>3</td></tr>
+              <tr><td>Engraving</td><td>—</td><td>Automator</td><td>1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <span class="section-subtitle">— Design & Power</span>
+        <h3 class="section-title fw-bold mb-4">Engineering Infrastructure</h3>
+        
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="secondary-card d-flex align-items-start">
+              <i class="bi bi-laptop fs-1 text-accent me-3"></i>
+              <div>
+                <h5 class="fw-bold">Design & Programming</h5>
+                <p class="mb-0 small">2 dedicated workstations with <strong>SolidWorks</strong> for 3D modeling and <strong>SolidCAM</strong> for CNC programming. We accept STEP, IGES, DWG, DXF formats.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="secondary-card d-flex align-items-start">
+              <i class="bi bi-lightning-charge fs-1 text-accent me-3"></i>
+              <div>
+                <h5 class="fw-bold">Power Infrastructure</h5>
+                <p class="mb-0 small"><strong>Connected Load:</strong> 82 KVA | <strong>Generator Backup:</strong> 115 KVA (Jackson) for uninterrupted production.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="secondary-card d-flex align-items-start">
+              <i class="bi bi-building fs-1 text-accent me-3"></i>
+              <div>
+                <h5 class="fw-bold">Facility</h5>
+                <p class="mb-0 small">Owned land & building: <strong>10,000 sq. ft.</strong> at C-431 Sector 10, Noida. Unit 2: W-20 Sector 11, Noida.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 p-4 bg-white rounded-4 shadow-sm">
+          <h5 class="fw-bold mb-3"><i class="bi bi-gear me-2 text-accent"></i>Secondary Operations (Managed)</h5>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-unstyled small">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Deburring</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Heat Treatment</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Surface Plating</li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled small">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Powder Coating</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Anodizing</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i> Assembly</li>
+              </ul>
+            </div>
+          </div>
+          <p class="small text-secondary mt-2 mb-0">* Managed through approved partner network with full quality oversight.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Jigs & Fixtures Specialization -->
+<section class="py-5 bg-light-metal">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <span class="section-subtitle">— Our Specialty</span>
+        <h3 class="section-title fw-bold display-6 mb-3">Jigs, Fixtures & Automation Solutions</h3>
+        <p class="lead">We are a strategic partner to Motherson Sumi Systems and Tata Yazaki for wiring harness checking fixtures.</p>
+        <div class="mt-4">
+          <div class="d-flex mb-3">
+            <i class="bi bi-check-lg text-accent fs-4 me-3"></i>
+            <div><strong>Circuit Check Jigs</strong><br><small class="text-secondary">For automotive wiring harness validation.</small></div>
+          </div>
+          <div class="d-flex mb-3">
+            <i class="bi bi-check-lg text-accent fs-4 me-3"></i>
+            <div><strong>Pneumatic Clamping Fixtures</strong><br><small class="text-secondary">Quick loading/unloading for mass production.</small></div>
+          </div>
+          <div class="d-flex mb-3">
+            <i class="bi bi-check-lg text-accent fs-4 me-3"></i>
+            <div><strong>Assembly & Welding Fixtures</strong><br><small class="text-secondary">Precision alignment for consistent quality.</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <img src="images/capebilitie.jpeg" alt="Jigs and Fixtures" class="img-fluid rounded-4 shadow-lg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-navy text-white">
+  <div class="container text-center py-3">
+    <i class="bi bi-chat-dots fs-1 mb-3 d-block" style="color: var(--accent-orange);"></i>
+    <h2 class="display-6 fw-bold">Have a complex manufacturing requirement?</h2>
+    <p class="lead mb-4 opacity-75">Share your drawings with us. We'll provide a competitive quote within 24 hours.</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="#" class="btn btn-accent btn-lg px-4"><i class="bi bi-file-earmark-arrow-up me-2"></i>Upload Drawing / RFQ</a>
+      <a href="#" class="btn btn-outline-light btn-lg px-4"><i class="bi bi-telephone me-2"></i>Contact Engineering</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mb-4">
+        <h5 class="text-white fw-bold"><i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i>FRIENDS METAL INDUSTRIES</h5>
+        <p class="small opacity-75">Precision Machined Components & Jigs Fixtures. Serving Railways, Automotive, Defense and Industrial sectors since 1987.</p>
+        <p class="small"><i class="bi bi-geo-alt-fill me-1"></i> C-431 Sector 10, Noida, UP 201301<br>Unit 2: W-20 Sector 11, Noida</p>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h6 class="text-white">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="about.html" class="text-secondary text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="capabilities.html" class="text-secondary text-decoration-none">Capabilities</a></li>
+          <li class="mb-2"><a href="quality-policy.html" class="text-secondary text-decoration-none">Quality Policy</a></li>
+          <li class="mb-2"><a href="gallery.html" class="text-secondary text-decoration-none">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Contact</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><i class="bi bi-person-circle me-1"></i> Mr. Rajesh Arora: +91 98111 44294</li>
+          <li class="mb-2"><i class="bi bi-person-circle me-1"></i> Mr. Karan Arora: +91 99580 93793</li>
+          <li class="mb-2"><i class="bi bi-envelope me-1"></i> fmindustries_431@hotmail.com</li>
+          <li class="mt-3">
+            <span class="badge bg-light text-dark p-2">ISO 9001:2015 Certified</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="opacity-25">
+    <div class="d-flex flex-wrap justify-content-between align-items-center small">
+      <span class="text-secondary">© 2025 Friends Metal Industries. All rights reserved.</span>
+      <span class="text-secondary">
+        <i class="bi bi-instagram me-2"></i>
+        <i class="bi bi-linkedin me-2"></i>
+        <i class="bi bi-facebook"></i>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
