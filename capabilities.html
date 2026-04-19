@@ -155,12 +155,77 @@
 <body>
 
 <!-- Navigation -->
+<!-- Updated Navigation with Logo and Tagline -->
+<style>
+  .navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+  }
+  
+  .navbar-brand img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 5px;
+  }
+  
+  .brand-tagline {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0a192f;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  
+  .brand-tagline .light-text {
+    font-weight: 400;
+    color: #5c6b7a;
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 991px) {
+    .navbar-brand img {
+      width: 85px;
+    }
+    
+    .brand-tagline {
+      font-size: 11px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-brand img {
+      width: 70px;
+    }
+    
+    .brand-tagline {
+      font-size: 9px;
+      white-space: nowrap;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .navbar-brand img {
+      width: 60px;
+    }
+    
+    .brand-tagline {
+      font-size: 8px;
+    }
+  }
+</style>
+
 <nav class="navbar navbar-expand-lg bg-white py-2 border-bottom sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold text-navy" href="index.html">
-      <!-- <i class="bi bi-gear-wide-connected me-2" style="color: var(--accent-orange);"></i> -->
-       <img src="images/logo.png" alt="FMI Logo" style="height:40px; width:auto; margin-right:8px;">
-         Precision  <span class="fw-light">Meets Performance</span>
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="FMI Logo">
+      <span class="brand-tagline">Precision <span class="light-text">Meets Performance</span></span>
     </a>
     <div class="d-flex align-items-center ms-auto me-2 d-lg-none">
       <span class="cert-badge me-2">ISO 9001:2015</span>
